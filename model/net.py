@@ -8,7 +8,7 @@ class ModelBase(nn.Module):
         self.conf = conf
         if "gravity" in conf.keys():
             self.integrator = pp.module.IMUPreintegrator(prop_cov=conf.propcov, reset=True, gravity = 0.0)
-            print("conf.ngravity", conf.ngravity, self.integrator.gravity)
+            print("conf.gravity", conf.gravity, self.integrator.gravity)
         else:
             self.integrator = pp.module.IMUPreintegrator(prop_cov=conf.propcov, reset=True)
         print("network constructed: ", self.conf.network, "gtrot: ", self.conf.gtrot)
